@@ -15,7 +15,9 @@ module.exports = getConfig({
 	// get a fresh folder. Usually you want this
 	// but since it's destructive we make it
 	// false by default
-	clearBeforeBuild: true
+	clearBeforeBuild: true,
 
+	// A boolean to indicate whether or not everything is in production mode (minified, etc.) or development mode (everything hotloaded and unminified).
+	// By default this value is true if the command you ran contains hjs-dev-server and false otherwise. The option exists here in case you need to override the default.
 	isDev: process.env.NODE_ENV !== 'production',
 });
