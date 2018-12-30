@@ -4,7 +4,7 @@
 	"description": "A really awesome way to manager labels for github issues.",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"deploy": "surge -p public -d labelr-ishan1608.surge.sh"
 	},
 	"author": "Ishan <ishan1608@gmail.com>",
 	"license": "MIT",
