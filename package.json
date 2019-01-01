@@ -2,9 +2,9 @@
 	"name": "labelr",
 	"version": "1.0.0",
 	"description": "A really awesome way to manager labels for github issues.",
-	"main": "index.js",
+	"private": true,
 	"scripts": {
-		"start": "hjs-dev-server",
+		"start": "webpack --config webpack.config.js",
 		"prebuild": "rm -rf public && mkdir public",
 		"build": "NODE_ENV=production webpack",
 		"deploy": "npm run build && surge -p public -d labelr-ishan1608.surge.sh",
@@ -14,6 +14,8 @@
 	"license": "MIT",
 	"dependencies": {},
 	"devDependencies": {
-		"surge": "^0.20.1"
+		"surge": "^0.20.1",
+		"webpack": "^4.28.3",
+		"webpack-cli": "^3.1.2"
 	}
 }
