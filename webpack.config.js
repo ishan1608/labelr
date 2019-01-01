@@ -8,5 +8,19 @@ module.exports = {
 	output: {
 		filename: 'index-bundle.js',
 		path: BUILD_DIR
+	},
+	module: {
+		rules: [
+			{
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react']
+					}
+				}
+			}
+		]
 	}
 };
