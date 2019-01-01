@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "webpack --config webpack.config.js",
 		"prebuild": "rm -rf public && mkdir public",
-		"build": "NODE_ENV=production webpack",
+		"build": "NODE_ENV=production webpack --config webpack.config.js",
 		"deploy": "npm run build && surge -p public -d labelr-ishan1608.surge.sh",
 		"yolo": "npm run build && npm run deploy"
 	},
