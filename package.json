@@ -13,7 +13,9 @@
 	"author": "Ishan <ishan1608@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"lodash": "^4.17.11"
+		"lodash": "^4.17.11",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0"
 	},
 	"devDependencies": {
 		"surge": "^0.20.1",
