@@ -4,7 +4,7 @@
 	"description": "A really awesome way to manager labels for github issues.",
 	"private": true,
 	"scripts": {
-		"start": "webpack --config webpack.config.js -d",
+		"start": "webpack --config webpack.config.js -d --progress",
 		"prebuild-backup": "rm -rf dist && mkdir dist",
 		"build": "NODE_ENV=production webpack --config webpack.config.js",
 		"deploy": "npm run build && surge -p dist -d labelr-ishan1608.surge.sh",
