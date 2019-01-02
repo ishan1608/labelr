@@ -1,10 +1,6 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Hello extends React.Component {
-	render() {
-		return <div>Hello, {this.props.name}</div>;
-	}
-}
+import Root from './components/root';
 
-ReactDOM.render(<Hello name="Webpack!"/>, document.getElementById('root'));
+ReactDOM.render(<Root name="Webpack!"/>, document.getElementById('root'));
