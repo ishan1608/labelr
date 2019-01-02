@@ -7,4 +7,4 @@ class Hello extends React.Component {
 	}
 }
 
-ReactDOM.render(<Hello name="Webpack!"/>, document.body);
+ReactDOM.render(<Hello name="Webpack!"/>, document.getElementById('root'));
