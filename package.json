@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "webpack --config webpack.config.js -d --progress --watch",
 		"prebuild": "rm -rf dist && mkdir dist && cp src/index.html dist/index.html",
-		"build": "NODE_ENV=production webpack --config webpack.config.js",
+		"build": "NODE_ENV=production webpack --config webpack.config.js -p",
 		"deploy": "npm run build && surge -p dist -d labelr-ishan1608.surge.sh",
 		"yolo": "npm run build && npm run deploy"
 	},
