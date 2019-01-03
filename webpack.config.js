@@ -9,6 +9,7 @@ module.exports = {
 		filename: 'index-bundle.js',
 		path: BUILD_DIR
 	},
+	watch: true,
 	module: {
 		rules: [
 			{
