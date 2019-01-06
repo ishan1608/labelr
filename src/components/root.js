@@ -1,14 +1,21 @@
 import React from "react";
 
-import LikeCounter from "./like_counter";
+import LikeCounterComponent from "./like_counter";
 
-class Root extends React.Component {
+class RootComponent extends React.Component {
+
 	render() {
+		console.log('%c RootComponent.render()', 'color: green');
 		return <div>
 			<p>Hello, {this.props.name}</p>
-			<LikeCounter/>
+			<LikeCounterComponent/>
 		</div>;
 	}
+
+	componentWillUnmount() {
+		console.log('%c RootComponent.componentWillUnmount()', 'color: red');
+	}
+
 }
 
-export default Root;
+export default RootComponent;
