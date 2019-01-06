@@ -1,5 +1,5 @@
 import React from "react";
-const styles = require('../styles/main.css');
+import '../styles/main.css';  // const styles = require('../styles/main.css'); <-- Also works
 
 import LikeCounterComponent from "./like_counter";
 
