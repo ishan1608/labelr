@@ -1,8 +1,8 @@
 import React from "react";
-import '../styles/main.css';  // const styles = require('../styles/main.css'); <-- Also works
-import WebpackLogo from '../img/webpack.svg';
+import './root_style.css';  // const styles = require('./root_style.css'); <-- Also works
+import WebpackLogo from './webpack.svg';
 
-import LikeCounterComponent from "./like_counter";
+import LikeCounterComponent from "../like_counter/like_counter_component";
 
 class RootComponent extends React.Component {
 
