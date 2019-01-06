@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -49,6 +50,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),  // Cleans the `dist` folder
 		new webpack.HotModuleReplacementPlugin(),  // Generates hot update chunks
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',  // Template for index.html
