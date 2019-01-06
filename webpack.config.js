@@ -1,11 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
-	entry: APP_DIR + '/index.js',
+	entry: [
+		'webpack-dev-server/client?http://localhost:8080',  // Enables websocket connection (needs url and port)
+		'webpack/hot/only-dev-server',  // HMR in the browser
+		APP_DIR + '/index.js'  // App's entry point
+	],
 	output: {
 		filename: 'index-bundle.js',
 		path: BUILD_DIR
@@ -24,7 +29,15 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [new HtmlWebpackPlugin({
-		template: 'src/index.html'
-	})]
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),  // Generates hot update chunks
+		new HtmlWebpackPlugin({
+			template: 'src/index.html',  // Template for index.html
+		})
+	],
+	devServer: {
+		hot: true,  // Enable HMR
+		hotOnly: true,  // No-Reload, only HMR
+		contentBase: APP_DIR,  // Content Base --> APP_DIR
+	}
 };
