@@ -9,6 +9,7 @@ module.exports = {
 	entry: [
 		'webpack-dev-server/client?http://localhost:8080',  // Enables websocket connection (needs url and port)
 		'webpack/hot/only-dev-server',  // HMR in the browser
+		'react-hot-loader/patch', // RHL patch
 		APP_DIR + '/index.js'  // App's entry point
 	],
 	output: {
@@ -23,7 +24,8 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react']
+						presets: ['@babel/preset-env', '@babel/preset-react'],
+						plugins: ['react-hot-loader/babel']
 					}
 				}
 			}
