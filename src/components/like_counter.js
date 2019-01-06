@@ -1,16 +1,20 @@
 import React from 'react';
 
-class LikeCounter extends React.Component {
+class LikeCounterComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {likesCount: 0};
+		this.state = {
+			likesCount: 0
+		};
 		this.onLike = this.onLike.bind(this);
 	}
 
 	onLike() {
 		let newLikesCount = this.state.likesCount + 1;
-		this.setState({likesCount: newLikesCount});
+		this.setState({
+			likesCount: newLikesCount
+		});
 	}
 
 	render() {
@@ -26,4 +30,4 @@ class LikeCounter extends React.Component {
 
 }
 
-export default LikeCounter;
+export default LikeCounterComponent;

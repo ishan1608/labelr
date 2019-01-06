@@ -37,7 +37,6 @@ module.exports = {
 	],
 	devServer: {
 		hot: true,  // Enable HMR
-		hotOnly: true,  // No-Reload, only HMR
 		contentBase: APP_DIR,  // Content Base --> APP_DIR
 	}
 };
