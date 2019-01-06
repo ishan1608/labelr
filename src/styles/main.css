@@ -1,3 +1,7 @@
 .root-component {
-	background-color: aliceblue;
+	padding: 10px;
+	background-color: powderblue;
+}
+.webpack-logo {
+	height: 50px;
 }
