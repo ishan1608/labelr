@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const BUILD_DIR = path.resolve(__dirname, 'dist');
-const APP_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, '../dist');
+const APP_DIR = path.resolve(__dirname, '../src');
 
 module.exports = {
 	entry: [
@@ -56,8 +56,4 @@ module.exports = {
 			template: 'src/index.html',  // Template for index.html
 		})
 	],
-	devServer: {
-		hot: true,  // Enable HMR
-		contentBase: APP_DIR,  // Content Base --> APP_DIR
-	}
 };
