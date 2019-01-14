@@ -11,7 +11,7 @@ module.exports = {
 		'webpack-dev-server/client?http://localhost:8080',  // Enables websocket connection (needs url and port)
 		'webpack/hot/only-dev-server',  // HMR in the browser
 		'react-hot-loader/patch', // RHL patch
-		APP_DIR + '/index.js'  // App's entry point
+		path.resolve(APP_DIR, 'index.js')  // App's entry point
 	],
 	output: {
 		filename: 'index-bundle.js',
@@ -53,7 +53,7 @@ module.exports = {
 		new CleanWebpackPlugin(['dist']),  // Cleans the `dist` folder
 		new webpack.HotModuleReplacementPlugin(),  // Generates hot update chunks
 		new HtmlWebpackPlugin({
-			template: 'src/index.html',  // Template for index.html
+			template: path.resolve(APP_DIR, 'index.html'),  // Template for index.html
 		})
 	],
 };
