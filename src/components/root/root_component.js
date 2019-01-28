@@ -1,5 +1,5 @@
 import React from "react";
-import './root_style.css';  // const styles = require('./root_style.css'); <-- Also works
+import './root_style.scss';  // const styles = require('./root_style.scss'); <-- Also works
 import WebpackLogo from './webpack.svg';
 
 import LikeCounterComponent from "../like_counter/like_counter_component";
