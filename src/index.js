@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import 'bootstrap';
-import './styles.scss';
+import './styles.scss';  // const styles = require('./styles.scss'); <-- Also works
 
 import RootComponent from './components/root/root_component';
 
