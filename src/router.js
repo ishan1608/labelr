@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 
 import PublicPageComponent from './pages/public';
+import ReposPageComponent from './pages/repos';
 
 const renderRootComponent = (AppComponent) => {
 	ReactDOM.render(
@@ -39,5 +40,17 @@ export default Router.extend({
 
 	repos() {
 		console.log('On repos page');
+
+		// initial render
+		renderRootComponent(ReposPageComponent);
+
+		// TODO ishan 2019-01-30 Hot Module Reload stops working if ReposPageComponent also relies on the components used in PublicPageComponent
+		if (module.hot) {
+			// hot module reloading for RootComponent
+			module.hot.accept('./pages/repos', () => {
+				const NextRootComponent = require('./pages/repos').default;
+				renderRootComponent(NextRootComponent);
+			});
+		}
 	}
 });
