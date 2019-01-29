@@ -11,5 +11,6 @@ module.exports = merge(common, {
 	devServer: {
 		hot: true,  // Enable HMR
 		contentBase: APP_DIR,  // Content Base --> APP_DIR
+		historyApiFallback: true,
 	}
 });
