@@ -20,8 +20,8 @@ renderRootComponent(RootComponent);
 
 if (module.hot) {
 	// hot module reloading for RootComponent
-	module.hot.accept('./components/root/root_component', () => {
-		const NextRootComponent = require('./components/root/root_component').default;
+	module.hot.accept(RootComponent, () => {
+		const NextRootComponent = RootComponent;
 		renderRootComponent(NextRootComponent);
 	});
 }
