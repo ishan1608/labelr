@@ -2,8 +2,8 @@ import React from 'react';
 import Router from 'ampersand-router';
 import ReactDOM from 'react-dom';
 
-import PublicPageComponent from './pages/public';
-import ReposPageComponent from './pages/repos';
+import PublicPageComponent from './pages/public_page';
+import ReposPageComponent from './pages/repos_page';
 
 
 const renderRootComponent = (AppComponent) => {
