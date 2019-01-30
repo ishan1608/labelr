@@ -1,15 +1,8 @@
 import React from "react";
 import './root_style.scss';
-import {setConfig} from "react-hot-loader";
-import {hot} from "react-hot-loader/root";
 
 import LikeCounterComponent from "../like_counter/like_counter_component";
 import WebpackLogo from './webpack.svg';
-
-
-setConfig({
-	pureRender: true, // RHL will not change render method
-});
 
 class RootComponent extends React.Component {
 
@@ -28,4 +21,4 @@ class RootComponent extends React.Component {
 
 }
 
-export default hot(RootComponent);
+export default RootComponent;

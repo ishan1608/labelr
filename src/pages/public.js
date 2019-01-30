@@ -1,5 +1,14 @@
 import React from 'react';
+import {setConfig} from "react-hot-loader";
+import {hot} from "react-hot-loader/root";
+
 import RootComponent from '../components/root/root_component';
+
+
+// NOTE ishan 2019-01-30 This configuration of react-hot-loader is optional
+setConfig({
+	pureRender: true, // RHL will not change render method
+});
 
 class PublicPageComponent extends React.Component {
 
@@ -14,4 +23,4 @@ class PublicPageComponent extends React.Component {
 
 }
 
-export default PublicPageComponent;
+export default hot(PublicPageComponent);
