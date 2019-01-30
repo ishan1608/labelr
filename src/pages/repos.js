@@ -1,4 +1,5 @@
 import React from 'react';
+import {hot} from "react-hot-loader/root";
 
 class ReposPageComponent extends React.Component {
 
@@ -13,4 +14,4 @@ class ReposPageComponent extends React.Component {
 
 }
 
-export default ReposPageComponent;
+export default hot(ReposPageComponent);
