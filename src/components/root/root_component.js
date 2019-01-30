@@ -17,7 +17,7 @@ class RootComponent extends React.Component {
 		console.log('%c RootComponent.render()', 'color: green');
 		return <div className="root-component">
 			<img className="webpack-logo" src={WebpackLogo}/>
-			<p>Ola, {this.props.name}</p>
+			<p>Hello, {this.props.name}</p>
 			<LikeCounterComponent/>
 		</div>;
 	}
