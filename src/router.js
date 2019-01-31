@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import HelloPageComponent from './pages/hello_page';
 import ReposPageComponent from './pages/repos_page';
+import PublicPageComponent from './pages/public_page';
 
 
 const renderRootComponent = (AppComponent) => {
@@ -15,8 +16,14 @@ const renderRootComponent = (AppComponent) => {
 
 export default Router.extend({
 	routes: {
+		'': 'public',
 		'hello': 'hello',
 		'repos': 'repos',
+	},
+
+	public() {
+		console.log('On public page');
+		renderRootComponent(PublicPageComponent)
 	},
 
 	hello() {
