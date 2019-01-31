@@ -10,17 +10,17 @@ setConfig({
 	pureRender: true, // RHL will not change render method
 });
 
-class PublicPageComponent extends React.Component {
+class HelloPageComponent extends React.Component {
 
 	render() {
-		console.log('%c PublicPageComponent.render()', 'color: green');
+		console.log('%c HelloPageComponent.render()', 'color: green');
 		return <RootComponent name="Webpack!"/>;
 	}
 
 	componentWillUnmount() {
-		console.log('%c PublicPageComponent.componentWillUnmount()', 'color: red');
+		console.log('%c HelloPageComponent.componentWillUnmount()', 'color: red');
 	}
 
 }
 
-export default hot(PublicPageComponent);
+export default hot(HelloPageComponent);
