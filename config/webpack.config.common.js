@@ -65,6 +65,15 @@ module.exports = {
 				use: [
 					'file-loader'
 				]
+			}, {
+				test: /\.styl$/,
+				use: [{
+					loader: 'style-loader', // inject CSS to page
+				}, {
+					loader: 'css-loader', // translates CSS into CommonJS modules
+				}, {
+					loader: 'stylus-loader' // compiles Stylus to CSS
+				}]
 			}
 		]
 	},
