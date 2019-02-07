@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap';
-import './styles.scss';  // const styles = require('./styles.scss'); <-- Also works
+import './styles/styles.scss';
+import './styles/main.styl';
 
 import Router from './router';
 

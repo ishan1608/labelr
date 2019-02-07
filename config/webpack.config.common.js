@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const yeticss = require('yeticss');
 
 const BUILD_DIR = path.resolve(__dirname, '../dist');
 const APP_DIR = path.resolve(__dirname, '../src');
@@ -82,6 +83,15 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),  // Generates hot update chunks
 		new HtmlWebpackPlugin({
 			template: path.resolve(APP_DIR, 'index.html'),  // Template for index.html
+		}),
+		new webpack.LoaderOptionsPlugin({
+			test: /\.styl$/, // apply only for *.styl files
+			options: {
+				// configure stylus loader to use the yeticss plugin
+				stylus: {
+					use: [yeticss()]
+				}
+			}
 		})
 	],
 };
