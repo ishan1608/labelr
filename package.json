@@ -20,7 +20,8 @@
 		"popper.js": "^1.14.6",
 		"qs": "^6.6.0",
 		"react": "^16.7.0",
-		"react-dom": "^16.7.0"
+		"react-dom": "^16.7.0",
+		"xhr": "^2.5.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
