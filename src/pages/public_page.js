@@ -23,7 +23,7 @@ class PublicPageComponent extends React.Component {
 				<div>
 					<p>We label stuff for you, because, we can&trade;</p>
 
-					<InternalAnchor href='/repos' className='button button-large'>
+					<InternalAnchor href='/login' className='button button-large'>
 						<span className='mega-octicon octicon-mark-github'/> Login with GitHub
 					</InternalAnchor>
 				</div>

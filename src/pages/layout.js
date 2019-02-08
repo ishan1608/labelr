@@ -13,7 +13,7 @@ class Layout extends React.Component{
 					<label htmlFor='menu-toggle'>Menu</label>
 					<ul className='list-unstyled list-inline cf'>
 						<li>Labelr</li>
-						<li><a href='/repos'>Repos</a></li>
+						<li><InternalAnchor href='/repos'>Repos</InternalAnchor></li>
 						<li className='pull-right'><InternalAnchor href='/'>Logout</InternalAnchor></li>
 					</ul>
 				</nav>

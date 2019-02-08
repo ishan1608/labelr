@@ -1,3 +1,4 @@
+import qs from 'qs';
 import React from 'react';
 import Router from 'ampersand-router';
 import ReactDOM from 'react-dom';
@@ -13,6 +14,8 @@ export default Router.extend({
 		'': 'public',
 		'hello': 'hello',
 		'repos': 'repos',
+		'login': 'login',
+		'auth/callback?code=:code': 'authCallback',
 	},
 
 	renderPage: (page, opts = {layout: true}) => {
@@ -42,5 +45,18 @@ export default Router.extend({
 	repos() {
 		console.log('On repos page');
 		this.renderPage(<ReposPageComponent/>);
+	},
+
+	login() {
+		let githubOAuthQueryString = qs.stringify({
+			client_id: 'f41f0c7ce8df2861075d',
+			redirect_uri: `${window.location.origin}/auth/callback`,
+			scope: 'user,repo'
+		});
+		window.location = `https://github.com/login/oauth/authorize?${githubOAuthQueryString}`
+	},
+
+	authCallback(code) {
+		console.log(`Code from Github Callback ${code}`);
 	}
 });
