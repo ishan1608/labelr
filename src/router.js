@@ -2,6 +2,7 @@ import qs from 'qs';
 import React from 'react';
 import Router from 'ampersand-router';
 import ReactDOM from 'react-dom';
+import uuid from 'node-uuid';
 
 import Layout from './pages/layout';
 import HelloPageComponent from './pages/hello_page';
@@ -15,7 +16,7 @@ export default Router.extend({
 		'hello': 'hello',
 		'repos': 'repos',
 		'login': 'login',
-		'auth/callback?code=:code': 'authCallback',
+		'auth/callback?:query': 'authCallback',
 	},
 
 	renderPage: (page, opts = {layout: true}) => {
@@ -48,15 +49,26 @@ export default Router.extend({
 	},
 
 	login() {
+		let state = uuid();
+		window.localStorage.setItem('state', state);
 		let githubOAuthQueryString = qs.stringify({
 			client_id: 'f41f0c7ce8df2861075d',
 			redirect_uri: `${window.location.origin}/auth/callback`,
-			scope: 'user,repo'
+			scope: 'user,repo',
+			state: state
 		});
 		window.location = `https://github.com/login/oauth/authorize?${githubOAuthQueryString}`
 	},
 
-	authCallback(code) {
-		console.log(`Code from Github Callback ${code}`);
+	authCallback(query) {
+		let oauthResponse = qs.parse(query);
+		let state = window.localStorage.getItem('state');
+		console.log(`Response from Github Callback ${oauthResponse}`);
+		if (oauthResponse.state === state) {
+			console.log('State matches');
+			window.localStorage.removeItem('state');
+		} else {
+			console.error(`Github OAuth state: ${state} does not match with returned state: ${oauthResponse.state}`);
+		}
 	}
 });
