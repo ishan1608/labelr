@@ -15,7 +15,8 @@ module.exports = {
 	],
 	output: {
 		filename: 'index-bundle.js',
-		path: BUILD_DIR
+		path: BUILD_DIR,
+		publicPath: '/'  // Prefixed to every URL created by runtime or loaders
 	},
 	module: {
 		rules: [
