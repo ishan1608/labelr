@@ -1,7 +1,7 @@
 import React from 'react';
 import {hot} from "react-hot-loader/root";
 
-import LikeCounterComponent from "../components/like_counter/like_counter_component";
+import LikeCounterComponent from '../components/like_counter/like_counter_component';
 
 
 class ReposPageComponent extends React.Component {

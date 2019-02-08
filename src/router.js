@@ -2,17 +2,11 @@ import React from 'react';
 import Router from 'ampersand-router';
 import ReactDOM from 'react-dom';
 
+import Layout from './pages/layout';
 import HelloPageComponent from './pages/hello_page';
 import ReposPageComponent from './pages/repos_page';
 import PublicPageComponent from './pages/public_page';
 
-
-const renderRootComponent = (AppComponent) => {
-	ReactDOM.render(
-		<AppComponent/>,
-		document.getElementById('root')
-	);
-};
 
 export default Router.extend({
 	routes: {
@@ -21,19 +15,32 @@ export default Router.extend({
 		'repos': 'repos',
 	},
 
+	renderPage: (page, opts = {layout: true}) => {
+		if (opts.layout) {
+			page = (
+				<Layout>
+					{page}
+				</Layout>
+			);
+		}
+		ReactDOM.render(
+			page,
+			document.getElementById('root')
+		);
+	},
+
 	public() {
 		console.log('On public page');
-		renderRootComponent(PublicPageComponent)
+		this.renderPage(<PublicPageComponent/>, {layout: false})
 	},
 
 	hello() {
 		console.log('On hello page');
-		renderRootComponent(HelloPageComponent);
+		this.renderPage(<HelloPageComponent/>, {layout: false});
 	},
 
 	repos() {
 		console.log('On repos page');
-
-		renderRootComponent(ReposPageComponent);
+		this.renderPage(<ReposPageComponent/>);
 	}
 });
