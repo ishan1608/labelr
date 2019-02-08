@@ -3,6 +3,7 @@ import {setConfig} from "react-hot-loader";
 import {hot} from "react-hot-loader/root";
 
 import './public_page.scss';
+import InternalAnchor from '../components/utils/internal_anchor';
 
 
 // NOTE ishan 2019-01-30 This configuration of react-hot-loader is optional
@@ -21,9 +22,10 @@ class PublicPageComponent extends React.Component {
 				</header>
 				<div>
 					<p>We label stuff for you, because, we can&trade;</p>
-					<a href='/repos' className='button button-large'>
+
+					<InternalAnchor href='/repos' className='button button-large'>
 						<span className='mega-octicon octicon-mark-github'/> Login with GitHub
-					</a>
+					</InternalAnchor>
 				</div>
 			</div>
 		);

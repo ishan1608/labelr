@@ -1,5 +1,6 @@
 import React from 'react';
 
+import InternalAnchor from '../components/utils/internal_anchor';
 
 class Layout extends React.Component{
 
@@ -13,7 +14,7 @@ class Layout extends React.Component{
 					<ul className='list-unstyled list-inline cf'>
 						<li>Labelr</li>
 						<li><a href='/repos'>Repos</a></li>
-						<li className='pull-right'><a href='/logout'>Logout</a></li>
+						<li className='pull-right'><InternalAnchor href='/'>Logout</InternalAnchor></li>
 					</ul>
 				</nav>
 				<div className='container'>
