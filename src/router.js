@@ -3,6 +3,7 @@ import React from 'react';
 import Router from 'ampersand-router';
 import ReactDOM from 'react-dom';
 import uuid from 'node-uuid';
+import xhr from 'xhr';
 
 import Layout from './pages/layout';
 import HelloPageComponent from './pages/hello_page';
@@ -63,10 +64,18 @@ export default Router.extend({
 	authCallback(query) {
 		let oauthResponse = qs.parse(query);
 		let state = window.localStorage.getItem('state');
-		console.log(`Response from Github Callback ${oauthResponse}`);
+		console.log('Response from Github Callback');
+		console.log(oauthResponse);
 		if (oauthResponse.state === state) {
 			console.log('State matches');
 			window.localStorage.removeItem('state');
+			// Send request to the gatekeeper to get access token
+			xhr({
+				url: `https://labelr-ishan1608-localhost.herokuapp.com/authenticate/${oauthResponse.code}`,
+				json: true
+			}, (err, resp, body) => {
+				console.log(`Github access token ${body.token}`);
+			});
 		} else {
 			console.error(`Github OAuth state: ${state} does not match with returned state: ${oauthResponse.state}`);
 		}
