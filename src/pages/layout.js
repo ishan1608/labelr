@@ -14,7 +14,7 @@ class Layout extends React.Component{
 					<ul className='list-unstyled list-inline cf'>
 						<li>Labelr</li>
 						<li><InternalAnchor href='/repos'>Repos</InternalAnchor></li>
-						<li className='pull-right'><InternalAnchor href='/'>Logout</InternalAnchor></li>
+						<li className='pull-right'><InternalAnchor href='/logout'>Logout</InternalAnchor></li>
 					</ul>
 				</nav>
 				<div className='container'>

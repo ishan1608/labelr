@@ -1,3 +1,4 @@
+import app from 'ampersand-app';
 import qs from 'qs';
 import React from 'react';
 import Router from 'ampersand-router';
@@ -18,6 +19,7 @@ export default Router.extend({
 		'repos': 'repos',
 		'login': 'login',
 		'auth/callback?:query': 'authCallback',
+		'logout': 'logout',
 	},
 
 	renderPage: (page, opts = {layout: true}) => {
@@ -74,10 +76,19 @@ export default Router.extend({
 				url: `https://labelr-ishan1608-localhost.herokuapp.com/authenticate/${oauthResponse.code}`,
 				json: true
 			}, (err, resp, body) => {
-				console.log(`Github access token ${body.token}`);
+				if (err) {
+					return console.error('Something wrong happened while authenticating');
+				}
+				app.me.token = body.token;
+				this.redirectTo('/repos');
 			});
 		} else {
 			console.error(`Github OAuth state: ${state} does not match with returned state: ${oauthResponse.state}`);
 		}
+	},
+
+	logout() {
+		window.localStorage.clear();
+		window.location = '/';
 	}
 });
