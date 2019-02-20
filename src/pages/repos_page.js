@@ -1,8 +1,13 @@
 import React from 'react';
 import {hot} from "react-hot-loader/root";
+import {setConfig} from "react-hot-loader";
 
 import LikeCounterComponent from '../components/like_counter/like_counter_component';
 
+
+setConfig({
+	pureRender: true, // RHL will not change render method
+});
 
 class ReposPageComponent extends React.Component {
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './like_counter.scss';
 
 class LikeCounterComponent extends React.Component {
