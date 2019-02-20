@@ -1,4 +1,5 @@
 import React from 'react';
+import ampersandReactAdapter from 'ampersand-react-adapter';
 
 import InternalAnchor from '../components/utils/internal_anchor';
 
@@ -6,6 +7,7 @@ class Layout extends React.Component{
 
 	render() {
 		console.log('%c Layout.render()', 'color: green');
+		const {me} = this.props;
 		return (
 			<div>
 				<nav className='top-nav top-nav-light cf' role='navigation'>
@@ -14,7 +16,7 @@ class Layout extends React.Component{
 					<ul className='list-unstyled list-inline cf'>
 						<li>Labelr</li>
 						<li><InternalAnchor href='/repos'>Repos</InternalAnchor></li>
-						<li className='pull-right'><InternalAnchor href='/logout'>Logout</InternalAnchor></li>
+						<li className='pull-right'>{me.login} <InternalAnchor href='/logout'>Logout</InternalAnchor></li>
 					</ul>
 				</nav>
 				<div className='container'>
@@ -29,4 +31,4 @@ class Layout extends React.Component{
 	}
 }
 
-export default Layout;
+export default ampersandReactAdapter(Layout);
