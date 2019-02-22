@@ -13,7 +13,7 @@
 	"dependencies": {
 		"ampersand-app": "^2.0.0",
 		"ampersand-model": "^8.0.1",
-		"ampersand-react-adapter": "git://github.com/ishan1608/ampersand-react-adapter.git",
+		"ampersand-react-adapter": "^1.0.0",
 		"ampersand-router": "^5.0.0",
 		"bootstrap": "^4.2.1",
 		"jquery": "^3.3.1",
