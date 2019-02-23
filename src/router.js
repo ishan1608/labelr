@@ -48,7 +48,7 @@ export default Router.extend({
 
 	repos() {
 		console.log('On repos page');
-		this.renderPage(<ReposPageComponent/>);
+		this.renderPage(<ReposPageComponent repos={app.me.repos}/>);
 	},
 
 	login() {
