@@ -1,21 +1,16 @@
 import Model from 'ampersand-model';
 
+import githubMixin from '../helpers/github-mixin';
+import RepoCollection from './repo-collection';
 
+
+// noinspection JSUnusedGlobalSymbols
 export default Model.extend({
 	url: 'https://api.github.com/user',
-
-	ajaxConfig() {
-		return {
-			headers: {
-				Authorization: `token ${this.token}`
-			}
-		};
-	},
 
 	initialize() {
 		this.token = window.localStorage.token;
 		this.on('change:token', this.onChangeToken);
-		this.fetchInitialData();
 	},
 
 	props: {
@@ -28,6 +23,10 @@ export default Model.extend({
 		token: 'string',
 	},
 
+	collections: {
+		repos: RepoCollection
+	},
+
 	onChangeToken() {
 		window.localStorage.token = this.token;
 		this.fetchInitialData();
@@ -35,5 +34,6 @@ export default Model.extend({
 
 	fetchInitialData() {
 		this.fetch();
+		this.repos.fetch();
 	}
-});
+}, githubMixin);
