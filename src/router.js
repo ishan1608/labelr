@@ -10,6 +10,7 @@ import Layout from './pages/layout';
 import HelloPageComponent from './pages/hello_page';
 import ReposPageComponent from './pages/repos_page';
 import PublicPageComponent from './pages/public_page';
+import RepoDetailPageComponent from "./pages/repo_detail_page";
 
 
 export default Router.extend({
@@ -17,6 +18,7 @@ export default Router.extend({
 		'': 'public',
 		'hello': 'hello',
 		'repos': 'repos',
+		'repo/:owner/:name': 'repoDetail',
 		'login': 'login',
 		'auth/callback?:query': 'authCallback',
 		'logout': 'logout',
@@ -49,6 +51,13 @@ export default Router.extend({
 	repos() {
 		console.log('On repos page');
 		this.renderPage(<ReposPageComponent repos={app.me.repos}/>);
+	},
+
+	repoDetail(owner, name) {
+		console.log('On repo detail page', owner, name);
+		const fullName = `${owner}/${name}`;
+		let repo = app.me.repos.getByFullName(fullName);
+		this.renderPage(<RepoDetailPageComponent repo={repo}/>);
 	},
 
 	login() {
