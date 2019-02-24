@@ -21,7 +21,7 @@ class ReposPageComponent extends React.Component {
 				{repos.map((repo) => {
 					return (
 						<div key={repo.id}>
-							<InternalAnchor href={`repo/${repo.full_name}`}>{repo.full_name}</InternalAnchor>
+							<InternalAnchor href={repo.app_url}>{repo.full_name}</InternalAnchor>
 						</div>
 					);
 				})}
