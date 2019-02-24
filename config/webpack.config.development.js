@@ -10,8 +10,10 @@ module.exports = merge(common, {
 	devtool: 'inline-source-map',  // eval-cheap-module-source-map <-- another option
 
 	entry: [
+		'webpack-dev-server/client?http://localhost:8080',  // Enables websocket connection (needs url and port)
 		'webpack/hot/only-dev-server',  // HMR in the browser
 		'react-hot-loader/patch', // RHL patch
+		path.resolve(APP_DIR, 'index.js'),  // App's entry point
 	],
 
 	devServer: {

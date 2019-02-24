@@ -8,10 +8,7 @@ const BUILD_DIR = path.resolve(__dirname, '../dist');
 const APP_DIR = path.resolve(__dirname, '../src');
 
 module.exports = {
-	entry: [
-		'webpack-dev-server/client?http://localhost:8080',  // Enables websocket connection (needs url and port)
-		path.resolve(APP_DIR, 'index.js'),  // App's entry point
-	],
+	entry: path.resolve(APP_DIR, 'index.js'),  // App's entry point
 	output: {
 		filename: 'index-bundle.js',
 		path: BUILD_DIR,
