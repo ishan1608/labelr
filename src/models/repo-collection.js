@@ -7,5 +7,5 @@ import Repo from './repo';
 export default Collection.extend({
 	url: 'https://api.github.com/user/repos',
 
-	modal: Repo
+	model: Repo
 }, githubMixin);
