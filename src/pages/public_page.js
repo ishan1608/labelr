@@ -2,7 +2,7 @@ import React from 'react';
 import {setConfig} from "react-hot-loader";
 import {hot} from "react-hot-loader/root";
 
-import './public_page.scss';
+import '../styles/public_page.scss';
 import InternalAnchor from '../components/utils/internal_anchor';
 
 
