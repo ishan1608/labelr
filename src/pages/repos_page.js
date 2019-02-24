@@ -3,6 +3,8 @@ import {hot} from "react-hot-loader/root";
 import {setConfig} from "react-hot-loader";
 import ampersandReactAdapter from 'ampersand-react-adapter';
 
+import InternalAnchor from "../components/utils/internal_anchor";
+
 
 setConfig({
 	pureRender: true, // RHL will not change render method
@@ -18,8 +20,8 @@ class ReposPageComponent extends React.Component {
 				<h1>Repos Page</h1>
 				{repos.map((repo) => {
 					return (
-						<div key={repo.full_name}>
-							<a href={'#'}>{repo.full_name}</a>
+						<div key={repo.id}>
+							<InternalAnchor href={`repo/${repo.full_name}`}>{repo.full_name}</InternalAnchor>
 						</div>
 					);
 				})}
