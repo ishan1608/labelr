@@ -1,4 +1,5 @@
 import Model from 'ampersand-model';
+import LabelCollection from './label-collection';
 
 
 export default Model.extend({
@@ -19,5 +20,16 @@ export default Model.extend({
 				return `repo/${this.full_name}`;
 			}
 		}
+	},
+
+	collections: {
+		labels: LabelCollection
+	},
+
+	fetch() {
+		// Fetch this
+		Model.prototype.fetch.apply(this, arguments);
+		// Fetch labels
+		this.labels.fetch();
 	}
 });

@@ -19,10 +19,10 @@ export default Collection.extend({
 			model = new Repo({
 				full_name: fullName
 			});
-
-			// This is asynchronous and the data will not be available right away
-			model.fetch();
 		}
+
+		// This is asynchronous and the data will not be available right away
+		model.fetch();
 		return model;
 	}
 }, githubMixin);
