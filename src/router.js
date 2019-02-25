@@ -57,7 +57,7 @@ export default Router.extend({
 		console.log('On repo detail page', owner, name);
 		const fullName = `${owner}/${name}`;
 		let repo = app.me.repos.getByFullName(fullName);
-		this.renderPage(<RepoDetailPageComponent repo={repo}/>);
+		this.renderPage(<RepoDetailPageComponent repo={repo} labels={repo.labels}/>);
 	},
 
 	login() {

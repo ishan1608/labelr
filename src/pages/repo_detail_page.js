@@ -10,11 +10,19 @@ setConfig({
 class RepoDetailPageComponent extends React.Component {
 
 	render() {
-		const {repo} = this.props;
+		const {repo, labels} = this.props;
 		return (
 			<div>
 				<h1>Repo: {repo.name}</h1>
 				<p>{repo.full_name}</p>
+				<div>
+					<h2>Labels</h2>
+					<ul>
+						{labels.map((label) => {
+							return (<li key={label.id}>{label.name}</li>);
+						})}
+					</ul>
+				</div>
 			</div>
 		);
 	}
